@@ -1,0 +1,363 @@
+/* =========================================================
+   BASE.CSS — ponto de partida para projetos
+   Estrutura:
+   1. Variáveis (cores, fontes, espaçamentos)
+   2. Reset (zera diferenças entre navegadores)
+   3. Elementos base (body, títulos, links, imagens)
+   4. Formulários e botões
+   5. Layout (container, flex, grid)
+   6. Utilitários
+   7. Responsividade e modo escuro
+   ========================================================= */
+
+
+/* ---------- 1. VARIÁVEIS ----------
+   Altere aqui e o site inteiro muda junto. */
+:root {
+    /* Cores */
+    --cor-primaria: #2e7d5b;
+    --cor-primaria-hover: #256449;
+    --cor-texto: #1f2933;
+    --cor-texto-suave: #5f6b7a;
+    --cor-fundo: #ffffff;
+    --cor-superficie: #f5f7f9;
+    /* fundo de cards e seções */
+    --cor-borda: #e2e6ea;
+    --cor-erro: #c0392b;
+    --cor-sucesso: #27ae60;
+
+    /* Tipografia */
+    --fonte-base: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --fonte-mono: ui-monospace, "Cascadia Code", Consolas, monospace;
+    --tamanho-base: 1rem;
+    /* 16px */
+    --altura-linha: 1.6;
+
+    /* Espaçamentos (escala) */
+    --esp-1: 0.25rem;
+    /* 4px  */
+    --esp-2: 0.5rem;
+    /* 8px  */
+    --esp-3: 1rem;
+    /* 16px */
+    --esp-4: 1.5rem;
+    /* 24px */
+    --esp-5: 2rem;
+    /* 32px */
+    --esp-6: 3rem;
+    /* 48px */
+
+    /* Bordas e sombras */
+    --raio: 12px;
+    --raio-pill: 999px;
+    --sombra: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    /* Layout */
+    --largura-max: 1200px;
+    --transicao: 0.2s ease;
+}
+
+
+/* ---------- 2. RESET ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* largura inclui padding e borda */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    /* imagens nunca estouram o container */
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    /* formulários herdam a fonte do site */
+    color: inherit;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---------- 3. ELEMENTOS BASE ---------- */
+body {
+    min-height: 100vh;
+    font-family: var(--fonte-base);
+    font-size: var(--tamanho-base);
+    line-height: var(--altura-linha);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: var(--esp-3);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+/* tamanho fluido */
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: var(--esp-3);
+}
+
+a {
+    color: var(--cor-primaria);
+    transition: color var(--transicao);
+}
+
+a:hover {
+    color: var(--cor-primaria-hover);
+    text-decoration: underline;
+}
+
+code,
+pre {
+    font-family: var(--fonte-mono);
+    font-size: 0.9em;
+}
+
+pre {
+    padding: var(--esp-3);
+    background: var(--cor-superficie);
+    border-radius: var(--raio);
+    overflow-x: auto;
+}
+
+/* Foco visível para quem navega pelo teclado (acessibilidade) */
+:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+
+/* ---------- 4. FORMULÁRIOS E BOTÕES ---------- */
+input,
+textarea,
+select {
+    width: 100%;
+    padding: var(--esp-2) var(--esp-3);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    background: var(--cor-fundo);
+    transition: border-color var(--transicao);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+label {
+    display: block;
+    margin-bottom: var(--esp-1);
+    font-weight: 600;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--esp-2);
+    padding: var(--esp-2) var(--esp-4);
+    border: none;
+    border-radius: var(--raio-pill);
+    background: var(--cor-primaria);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transicao), transform var(--transicao);
+}
+
+.btn:hover {
+    background: var(--cor-primaria-hover);
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn--contorno {
+    background: transparent;
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn--contorno:hover {
+    background: var(--cor-primaria);
+}
+
+
+/* ---------- 5. LAYOUT ---------- */
+.container {
+    width: 100%;
+    max-width: var(--largura-max);
+    margin-inline: auto;
+    /* centraliza */
+    padding-inline: var(--esp-3);
+}
+
+.secao {
+    padding-block: var(--esp-6);
+}
+
+/* Flexbox */
+.flex {
+    display: flex;
+    gap: var(--esp-3);
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.centro {
+    align-items: center;
+    justify-content: center;
+}
+
+.entre {
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Grid responsivo: cria quantas colunas couberem (mín. 250px cada) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--esp-4);
+}
+
+/* Card */
+.card {
+    padding: var(--esp-4);
+    background: var(--cor-superficie);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra);
+}
+
+
+/* ---------- 6. UTILITÁRIOS ---------- */
+.texto-centro {
+    text-align: center;
+}
+
+.texto-suave {
+    color: var(--cor-texto-suave);
+}
+
+.mt-3 {
+    margin-top: var(--esp-3);
+}
+
+.mb-3 {
+    margin-bottom: var(--esp-3);
+}
+
+.mt-5 {
+    margin-top: var(--esp-5);
+}
+
+.mb-5 {
+    margin-bottom: var(--esp-5);
+}
+
+/* Esconde visualmente, mas leitores de tela continuam lendo */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+
+/* ---------- 7. RESPONSIVIDADE E MODO ESCURO ---------- */
+
+/* Telas pequenas (celular) */
+@media (max-width: 600px) {
+    .secao {
+        padding-block: var(--esp-5);
+    }
+
+    .flex {
+        flex-direction: column;
+    }
+}
+
+/* Modo escuro automático (segue o sistema do usuário) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --cor-texto: #e6e9ec;
+        --cor-texto-suave: #a0aab4;
+        --cor-fundo: #14181c;
+        --cor-superficie: #1e2329;
+        --cor-borda: #2e353d;
+        --sombra: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Respeita quem prefere menos animação */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
