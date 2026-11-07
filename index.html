@@ -8,12 +8,155 @@
     <title>Library</title>
 </head>
 <body>
-    <div class="page">
-        <div class="header"></div>
-        <div class="sidebar"></div>
-        <div class="filter"></div>
-        <div class="main"></div>
-        <div class="footer"></div>
+    <div class="container pagina">
+        <div class="header">
+            <h1 class="logo">Biblioteca</h1>
+            <div class="usuario">
+                <span>Oi, usuário</span>
+                <div class="avatar"></div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <button class="btn-novo" id="btn-novo">+ Novo livro</button>
+
+            <dialog id="dialog-livro">
+                <form id="form-livro" method="dialog">
+                    <h2>Novo livro</h2>
+
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="autor">Autor</label>
+                    <input type="text" id="autor" name="autor" required>
+
+                    <label for="paginas">Número de páginas</label>
+                    <input type="number" id="paginas" name="paginas" min="1" required>
+
+                    <label for="genero">Gênero</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Selecione...</option>
+                        <option value="romance">Romance</option>
+                        <option value="fantasia">Fantasia</option>
+                        <option value="ficcao">Ficção científica</option>
+                        <option value="tecnico">Técnico</option>
+                    </select>
+
+                    <label class="check">
+                        <input type="checkbox" id="lido" name="lido">
+                        Já li este livro
+                    </label>
+
+                    <div class="form-acoes">
+                        <button type="button" id="btn-cancelar">Cancelar</button>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+            </dialog>
+        </div>
+
+        <div class="filter">
+            <label for="filtro-genero">Gênero:</label>
+            <select id="filtro-genero">
+                <option value="todos">Todos</option>
+                <option value="romance">Romance</option>
+                <option value="fantasia">Fantasia</option>
+                <option value="ficcao">Ficção científica</option>
+                <option value="tecnico">Técnico</option>
+            </select>
+        </div>
+
+        <div class="main grid">
+            <div class="card">
+                <h3 class="card-titulo">Dom Casmurro</h3>
+                <p class="card-autor">Machado de Assis</p>
+                <p>Páginas: 256</p>
+                <p>Gênero: Romance</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">O Hobbit</h3>
+                <p class="card-autor">J. R. R. Tolkien</p>
+                <p>Páginas: 336</p>
+                <p>Gênero: Fantasia</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">Duna</h3>
+                <p class="card-autor">Frank Herbert</p>
+                <p>Páginas: 680</p>
+                <p>Gênero: Ficção científica</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">Código Limpo</h3>
+                <p class="card-autor">Robert C. Martin</p>
+                <p>Páginas: 425</p>
+                <p>Gênero: Técnico</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">O Senhor dos Anéis</h3>
+                <p class="card-autor">J. R. R. Tolkien</p>
+                <p>Páginas: 1200</p>
+                <p>Gênero: Fantasia</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">Fundação</h3>
+                <p class="card-autor">Isaac Asimov</p>
+                <p>Páginas: 320</p>
+                <p>Gênero: Ficção científica</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">Memórias Póstumas de Brás Cubas</h3>
+                <p class="card-autor">Machado de Assis</p>
+                <p>Páginas: 208</p>
+                <p>Gênero: Romance</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-titulo">O Programador Pragmático</h3>
+                <p class="card-autor">Andrew Hunt e David Thomas</p>
+                <p>Páginas: 352</p>
+                <p>Gênero: Técnico</p>
+                <p class="card-status">Não lido</p>
+                <div class="card-acoes">
+                    <button class="btn-retirar">Retirar</button>
+                    <button class="btn-lido">Marcar como lido</button>
+                </div>
+            </div>
+        </div>
+        <div class="footer">&copy; 2026 Jonatas Xavier</div>
     </div>
 </body>
 </html>

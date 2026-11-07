@@ -282,6 +282,40 @@ label {
     gap: var(--esp-4);
 }
 
+.pagina {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: auto auto 1fr 1fr auto;
+    grid-template-areas:
+        "header  header"
+        "sidebar filter"
+        "sidebar main"
+        "sidebar main"
+        "footer  footer";
+    gap: 8px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.filter {
+    grid-area: filter;
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
+}
+
 /* Card */
 .card {
     padding: var(--esp-4);
